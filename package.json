@@ -1,28 +1,29 @@
 {
-  "name": "myblockchain",
-  "version": "1.0.0",
-  "description": "Simple Blockchain implementation in Javascript. For research purposes only.",
-  "main": "main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "blockchain",
-    "transactions",
-    "cryptocurrency"
-  ],
-  "author": "Esteban Hugo Somma",
-  "license": "MIT",
-  "repository": "",
-  "dependencies": {
-    "elliptic": "^6.5.4"
-  },
-  "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-standard": "^16.0.3",
-    "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-jsdoc": "^37.6.3",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^5.2.0"
-  }
+    "name": "myblockchain",
+    "version": "1.0.0",
+    "description": "Simple Blockchain implementation in Javascript. For research purposes only.",
+    "main": "main.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "eslint src/** tests/**"
+    },
+    "keywords": [
+        "blockchain",
+        "transactions",
+        "cryptocurrency"
+    ],
+    "author": "Esteban Hugo Somma",
+    "license": "MIT",
+    "repository": "",
+    "dependencies": {
+        "elliptic": "^6.5.4"
+    },
+    "devDependencies": {
+        "eslint": "^7.32.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-jsdoc": "^37.6.3",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.2.0"
+    }
 }
