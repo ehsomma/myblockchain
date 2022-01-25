@@ -111,10 +111,9 @@ class Block {
     constructor(timestamp, transactions, previousHash = '') {
         this.previousHash = previousHash;
         this.timestamp = timestamp;
-        this.hash = this.calculateHash();
-        this.nonce = 0;
-
         this.transactions = transactions;
+        this.nonce = 0;
+        this.hash = this.calculateHash();
 
         // TODO: Implement the markle root (transactionRoot).
     }
@@ -197,10 +196,6 @@ class Blockchain {
      * @returns {Block} The last block.
      */
     getLatestBlock() {
-        return this.chain[this.chain.length - 1];
-    }
-
-    getLatestBloc2Jsdoc() {
         return this.chain[this.chain.length - 1];
     }
 
@@ -313,6 +308,16 @@ class Blockchain {
      * @returns {boolean} True, if the chain is valid. Otherwise, false.
      */
     isChainValid() {
+        // Check if the Genesis block hasn't been tampered with by comparing the output of
+        // createGenesisBlock with the first block on our chain.
+        const realGenesis = JSON.stringify(this.createGenesisBlock());
+
+        if (realGenesis !== JSON.stringify(this.chain[0])) {
+            return false;
+        }
+
+        // Check the remaining blocks on the chain to see if there hashes and signatures 
+        // are correct.
         for (let i = 1; i < this.chain.length; i++) {
             const currentBlock = this.chain[i];
             const previousBlock = this.chain[i - 1];

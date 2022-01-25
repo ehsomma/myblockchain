@@ -21,7 +21,7 @@
         "spaced-comment": ["off", "always", { "exceptions": ["/", "#"], "markers": ["/"] }],
         // eslint/valid-jsdoc (native).
         "valid-jsdoc": [
-            "warn",
+            "error",
             {
               "matchDescription": "^([A-Z]|[`\\d_])[\\s\\S]*[.?!`]$",
               "prefer": {
@@ -42,13 +42,17 @@
               "requireParamType": false
             }
         ],
+        // jsdoc: Require jsdocs.
+        "jsdoc/require-jsdoc": [ 
+            "error", { "require": { "FunctionDeclaration": true, "MethodDefinition": true, "ClassDeclaration": true } }
+        ],
         // jsdoc: Require descripcion but without @description tag.
         "jsdoc/require-description": [ 
-            "warn", { "descriptionStyle": "body" }
+            "error", { "descriptionStyle": "body" }
         ],
         // jsdoc: Valid format (starts with uppercase, end with colon) in description, params and returns.
         "jsdoc/match-description": [
-            "warn", { "tags": { "param": true, "returns": true } }
+            "error", { "tags": { "param": true, "returns": true } }
         ]
     }
 }

@@ -1,0 +1,16 @@
+{
+    "extends": [
+        "../.eslintrc.json"
+    ],
+    "globals": {
+        "describe": "readonly",
+        "it": "readonly",
+        "beforeEach": "readonly"
+    },
+    "rules": {
+        // jsdoc: Require jsdocs => off.
+        "jsdoc/require-jsdoc": [ 
+            "off", { "require": { "FunctionDeclaration": true, "MethodDefinition": true, "ClassDeclaration": true } }
+        ]
+    }
+}
