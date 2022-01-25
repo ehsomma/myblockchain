@@ -1,0 +1,54 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+        "standard"
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "jsdoc"
+    ],
+    "rules": {
+        "semi": ["error", "always"],
+        "indent": ["error", 4],
+        "no-trailing-spaces": ["error", { "ignoreComments": true }],
+        "space-before-function-paren": ["error", "never"],
+        "spaced-comment": ["off", "always", { "exceptions": ["/", "#"], "markers": ["/"] }],
+        // eslint/valid-jsdoc (native).
+        "valid-jsdoc": [
+            "warn",
+            {
+              "matchDescription": "^([A-Z]|[`\\d_])[\\s\\S]*[.?!`]$",
+              "prefer": {
+                "arg": "param",
+                "argument": "param",
+                "return": "returns"
+              },
+              "preferType": {
+                "Boolean": "boolean",
+                "Number": "number",
+                "Object": "object",
+                "String": "string"
+              },
+              "requireReturn": false,
+              "requireReturnType": false,
+              "requireParamDescription": true,
+              "requireReturnDescription": true,
+              "requireParamType": false
+            }
+        ],
+        // jsdoc: Require descripcion but without @description tag.
+        "jsdoc/require-description": [ 
+            "warn", { "descriptionStyle": "body" }
+        ],
+        // jsdoc: Valid format (starts with uppercase, end with colon) in description, params and returns.
+        "jsdoc/match-description": [
+            "warn", { "tags": { "param": true, "returns": true } }
+        ]
+    }
+}

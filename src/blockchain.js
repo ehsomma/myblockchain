@@ -41,17 +41,17 @@ class Transaction {
      */
     calculateHash() {
         return crypto.createHash('sha256').update(
-            this.fromAddress
-            + this.toAddress
-            + this.amount
-            + this.timestamp).digest('hex');
+            this.fromAddress +
+            this.toAddress +
+            this.amount +
+            this.timestamp).digest('hex');
     }
 
     /**
-     * Signs a transaction with the given signingKey (which is an Elliptic keypair
-     * object that contains a private key). The signature is then stored inside the
-     * transaction object and later stored on the blockchain.
-     *
+     * Signs a transaction with the given signingKey (which is an Elliptic keypair object 
+     * that contains a private key). The signature is then stored inside the transaction 
+     * object and later stored on the blockchain.
+     * 
      * @param {EC.KeyPair} signingKey The EC.KeyPair to sign the transaction.
      */
     signTransaction(signingKey) {
@@ -126,10 +126,10 @@ class Block {
      */
     calculateHash() {
         return crypto.createHash('sha256').update(
-            this.previousHash
-            + this.timestamp
-            + JSON.stringify(this.transactions)
-            + this.nonce).digest('hex');
+            this.previousHash +
+            this.timestamp +
+            JSON.stringify(this.transactions) +
+            this.nonce).digest('hex');
     }
 
     /**
@@ -187,7 +187,7 @@ class Blockchain {
      * @returns A new block with "genesis" data.
      */
     createGenesisBlock() {
-        return new Block("01/01/2022", "Genesis block", "0");
+        return new Block('01/01/2022', 'Genesis block', '0');
     }
 
     /**
@@ -200,6 +200,10 @@ class Blockchain {
         return this.chain[this.chain.length - 1];
     }
 
+    getLatestBloc2Jsdoc() {
+        return this.chain[this.chain.length - 1];
+    }
+
     /**
      * Takes all the pending transactions, puts them in a Block and starts the mining process (PoW). 
      * It also adds a transaction to send the mining reward to the given address.
@@ -207,7 +211,6 @@ class Blockchain {
      * @param {string} miningRewardAddress The address of the miner to transfer the reward.
      */
     minePendingTransactions(miningRewardAddress) {
-
         // NOTE: In a real blockchain, not all pending transactions can be added to the block because 
         // there are many and also the block must have a certain size (eg: BCN = 1MB). It is handled 
         // by having a mempool where the miner can selects the most convenient transactions.
@@ -231,7 +234,7 @@ class Blockchain {
      *
      * @param {Transaction} transaction The transaction to be added.
      */
-     addTransaction(transaction) {
+    addTransaction(transaction) {
         // Check the addresses of the transaction.
         if (!transaction.fromAddress || !transaction.toAddress) {
             throw new Error('Transaction must include from and to address');
@@ -285,7 +288,7 @@ class Blockchain {
      * Returns a list of all transactions that were made to and from the given wallet address.
      *
      * @param  {string} address The address to get the transactions.
-     * @return {Transaction[]} The list of transactions.
+     * @returns {Transaction[]} The list of transactions.
      */
     getAllTransactionsForWallet(address) {
         const txs = [];
@@ -310,7 +313,7 @@ class Blockchain {
      * @returns {boolean} True, if the chain is valid. Otherwise, false.
      */
     isChainValid() {
-        for (var i = 1; i < this.chain.length; i++) {
+        for (let i = 1; i < this.chain.length; i++) {
             const currentBlock = this.chain[i];
             const previousBlock = this.chain[i - 1];
 

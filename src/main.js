@@ -10,7 +10,7 @@ const myKey = ec.keyFromPrivate('878cfb084a99917eda040c5972274c613be42e0fe08835b
 const myWalletAddress = myKey.getPublic('hex');
 
 // Create new instance of Blockchain class.
-var myBlockChain = new Blockchain();
+const myBlockChain = new Blockchain();
 
 // Mine first block.
 myBlockChain.minePendingTransactions(myWalletAddress);
