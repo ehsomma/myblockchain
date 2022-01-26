@@ -1,0 +1,11 @@
+{
+    "all": true,
+    "check-coverage": true,
+    "include": [
+        "src/**/*.js"
+    ],
+    "exclude": [
+        "src/keygenerator.js",
+        "src/main.js"
+    ]
+}
