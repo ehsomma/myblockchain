@@ -35,7 +35,7 @@ describe('Block class', function() {
                 blockObj.hash,
                 '08b3bcd0098ca938e72f7470b4a31b4d87569d50901deaf576394dd120015558'
             );
-            //07d2992ddfcb8d538075fea2a6a33e7fb546c18038ae1a8c0214067ed66dc393
+            //'07d2992ddfcb8d538075fea2a6a33e7fb546c18038ae1a8c0214067ed66dc393'
         });
 
         it('should change when we tamper with the tx', function() {
