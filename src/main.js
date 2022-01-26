@@ -23,7 +23,7 @@ myBlockChain.addTransaction(tx1);
 // Mine block.
 myBlockChain.minePendingTransactions(myWalletAddress);
 
-// Create second transaction
+// Create second transaction.
 const tx2 = new Transaction(myWalletAddress, 'address1', 50);
 tx2.signTransaction(myKey);
 myBlockChain.addTransaction(tx2);

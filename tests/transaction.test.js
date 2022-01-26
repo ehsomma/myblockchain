@@ -34,7 +34,6 @@ describe('Transaction class', function() {
 
             assert.strict.equal(
                 txObject.calculateHash(),
-
                 // Output of SHA256(a1b1101).
                 '21894bb7b0e56aab9eb48d4402d94628a9a179bc277542a5703f417900275153'
             );

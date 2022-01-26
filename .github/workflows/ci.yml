@@ -6,7 +6,7 @@ on:
 
 jobs:
   build-test:
-    name: Build & Test
+    name: Test & Coverage
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,12 +19,20 @@ jobs:
 
       - name: Run coverage
         run: npm run coverage
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: oyvrDN2NHem7KW5iGinoTqwzo1XiZ1tKt
   
   eslint:
     name: Run ESLint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      
+
+      - name: Install dependencies
       - run: npm ci
+
+      - name: Run ESLint
       - run: npm run lint

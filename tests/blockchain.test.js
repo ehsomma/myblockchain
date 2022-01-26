@@ -95,7 +95,7 @@ describe('Blockchain class', function() {
         });
 
         it('should fail when genesis block has been tampered with', function() {
-            // Epoch timestamp: https://www.epochconverter.com/.
+            // Epoch timestamp: https://www.epochconverter.com/
             blockchain.chain[0].timestamp = 131454001;
             assert(!blockchain.isChainValid());
         });

@@ -1,4 +1,4 @@
-// Source: https://github.com/indutny/elliptic
+// Source: https://github.com/indutny/elliptic.
 // ec implements ECDSA (Elliptic Curve Digital Signature Algorithm).
 // ECDSA is the signature algorithm used in bitcoin and ethereum to sign transactions.
 const EC = require('elliptic').ec;
