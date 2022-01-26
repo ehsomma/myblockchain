@@ -23,7 +23,7 @@ jobs:
       - name: Coveralls
         uses: coverallsapp/github-action@master
         with:
-          github-token: oyvrDN2NHem7KW5iGinoTqwzo1XiZ1tKt
+          github-token: ${{ secrets.GITHUB_TOKEN }}
   
   eslint:
     name: Run ESLint
