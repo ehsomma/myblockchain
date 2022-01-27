@@ -16,6 +16,13 @@ This project implements a basic blockchain in JavaScript for research purposes t
 * Simple proof-of-work algorithm (mining).
 * Verify blockchain (to prevent tampering).
 
+## Example
+Take a look or run the [main.js](https://github.com/ehsomma/myblockchain/blob/master/src/main.js) file to see step by step the full process.
+```
+cd src
+node main.js
+```
+
 ## Getting Started <a name = "getting-started"></a>
 ### Fork or download the repo
 <br>
@@ -65,13 +72,6 @@ To finalize this transaction, we have to mine a new block:
 
 ```js
 myChain.minePendingTransactions('<minerAddress>');
-```
-
-## Example
-Take a look or run the [main.js](https://github.com/ehsomma/myblockchain/blob/master/src/main.js) file to see step by step the full process.
-```
-cd src
-node main.js
 ```
 
 ## Original project <a name = "original-project"></a>

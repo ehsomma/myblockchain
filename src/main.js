@@ -41,6 +41,6 @@ console.log(`Balance of address3 is ${myBlockChain.getBalanceOfAddress('address3
 // Uncomment this line if you want to test tampering with the chain.
 // myBlockChain.chain[1].transactions[0].amount = 10;
 
-// Check if the chain is valid
+// Check if the chain is valid.
 console.log();
 console.log('Blockchain valid?', myBlockChain.isChainValid() ? 'Yes' : 'No');
