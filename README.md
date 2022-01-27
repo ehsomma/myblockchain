@@ -11,6 +11,7 @@ This project implements a basic blockchain in JavaScript for research purposes t
 
 * Generate wallet (private/public key).
 * Sign transactions.
+* Genesis block.
 * Add transactions to the block.
 * Simple proof-of-work algorithm (mining).
 * Verify blockchain (to prevent tampering).
@@ -26,20 +27,20 @@ npm install
 
 ### Generate a keypair
 
-To make transactions on this blockchain you need a **keypair** (private and public key). The public key becomes your wallet address and the private key is used to sign transactions.
+To make transactions on this blockchain you need a **keypair** (private and public key). The public key becomes your wallet address and the private key is used to sign transactions (see: keygenerator.js).
 
 ```js
 const EC = require('elliptic').ec;
 const ec = new EC('secp256k1');
 
-const myKey = ec.genKeyPair();
+const myKeyPair = ec.genKeyPair();
 ```
 
 The myKey object now contains your public & private key:
 
 ```js
-console.log('Public key:', myKey.getPublic('hex'));
-console.log('Private key:', myKey.getPrivate('hex'));
+console.log('Public key:', myKeyPair.getPublic('hex'));
+console.log('Private key:', myKeyPair.getPrivate('hex'));
 ```
 
 ### Create a blockchain instance
@@ -54,8 +55,8 @@ const myChain = new Blockchain();
 ```js
 // Transfer 100 coins from my wallet to "<toAddress1>".
 // NOTE: <toAddress> should be another public key.
-const tx = new Transaction(myKey.getPublic('hex'), '<toAddress1>', 100);
-tx.signTransaction(myKey);
+const tx = new Transaction(myKeyPair.getPublic('hex'), '<toAddress1>', 100);
+tx.signTransaction(myKeyPair);
 myChain.addTransaction(tx);
 ```
 
@@ -64,6 +65,13 @@ To finalize this transaction, we have to mine a new block:
 
 ```js
 myChain.minePendingTransactions('<minerAddress>');
+```
+
+## Example
+Take a look or run the [main.js](https://github.com/ehsomma/myblockchain/blob/master/src/main.js) file to see step by step the full process.
+```
+cd src
+node main.js
 ```
 
 ## Original project <a name = "original-project"></a>

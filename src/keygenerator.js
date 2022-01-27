@@ -7,9 +7,9 @@ const EC = require('elliptic').ec;
 const ec = new EC('secp256k1');
 
 // Generate a new key pair and convert them to hex-strings.
-const key = ec.genKeyPair();
-const publicKey = key.getPublic('hex');
-const privateKey = key.getPrivate('hex');
+const myKeyPair = ec.genKeyPair();
+const publicKey = myKeyPair.getPublic('hex');
+const privateKey = myKeyPair.getPrivate('hex');
 
 // Print the keys to the console.
 console.log();
